@@ -1,5 +1,4 @@
 val githubRepo = "scalajs-o3d"
-val openlayersVersion = "3.10.1"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
@@ -43,21 +42,17 @@ lazy val facade = project
   .enablePlugins(JsdocPlugin, ScalaJSPlugin)
   .settings(
     publishArtifact in (Compile, packageDoc) := false,
-    name := "scalajs-ol3",
+    name := githubRepo,
     jsdocRunSource := Some(
-      uri(s"https://github.com/openlayers/ol3.git#v${openlayersVersion}")
+      ((sourceDirectory in Compile).value / "javascript").toURI
     ),
-    jsdocRunInputs := Seq("src", "externs"),
-    jsdocDocletsFile := (sourceDirectory in Compile).value / "jsdoc" / s"ol3-${openlayersVersion}-jsdoc.json",
-    jsdocGlobalScope := Seq("ol3"),
+    jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
+    jsdocDocletsFile := (sourceDirectory in Compile).value / "jsdoc" / s"o3d-jsdoc.json",
     jsdocUtilScope := "pkg",
     sourceGenerators in Compile += jsdocGenerate.taskValue,
-    jsDependencies ++= Seq(
-      "org.webjars" % "openlayers" % openlayersVersion / s"webjars/openlayers/${openlayersVersion}/ol-debug.js" minified s"webjars/openlayers/${openlayersVersion}/ol.js"
-    ),
-    libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
-    ),
+//    libraryDependencies ++= Seq(
+//      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
+//    ),
     mappings in (Compile, packageSrc) ++=
       (managedSources in Compile).value pair relativeTo((sourceManaged in Compile).value)
 

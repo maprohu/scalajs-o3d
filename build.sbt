@@ -1,4 +1,4 @@
-val githubRepo = "scalajs-ol3"
+val githubRepo = "scalajs-o3d"
 val openlayersVersion = "3.10.1"
 
 val commonSettings = Seq(

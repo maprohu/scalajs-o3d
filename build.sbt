@@ -14,6 +14,7 @@ val commonSettings = Seq(
     else
       Some("releases"  at nexus + "service/local/staging/deploy/maven2")
   },
+
   pomIncludeRepository := { _ => false },
   licenses := Seq("BSD-style" -> url("http://www.opensource.org/licenses/bsd-license.php")),
   homepage := Some(url(s"https://github.com/maprohu/${githubRepo}")),
@@ -37,8 +38,11 @@ val noPublish = Seq(
   publishTo := Some(Resolver.file("Unused transient repository", file("target/unusedrepo")))
 )
 
+lazy val jsdocgenLib = ProjectRef(uri("../scalajs-jsdocgen"), "lib")
+
 lazy val facade = project
   .settings(commonSettings)
+  .dependsOn(jsdocgenLib)
   .enablePlugins(JsdocPlugin, ScalaJSPlugin)
   .settings(
     publishArtifact in (Compile, packageDoc) := false,

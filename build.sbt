@@ -51,12 +51,12 @@ lazy val facade = project
       ((sourceDirectory in Compile).value / "javascript").toURI
     ),
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
-    jsdocDocletsFile := (sourceDirectory in Compile).value / "jsdoc" / s"o3d-jsdoc.json",
+    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
     jsdocUtilScope := "pkg",
     sourceGenerators in Compile += jsdocGenerate.taskValue,
-//    libraryDependencies ++= Seq(
-//      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
-//    ),
+    libraryDependencies ++= Seq(
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
+    ),
     mappings in (Compile, packageSrc) ++=
       (managedSources in Compile).value pair relativeTo((sourceManaged in Compile).value)
 

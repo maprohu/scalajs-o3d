@@ -32,6 +32,7 @@
 
 /**
  * Namespace for math types.
+ * @namespace
  */
 o3d.math = {}
 

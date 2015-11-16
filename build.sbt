@@ -42,7 +42,7 @@ lazy val jsdocgenLib = ProjectRef(uri("../scalajs-jsdocgen"), "lib")
 
 lazy val facade = project
   .settings(commonSettings)
-  .dependsOn(jsdocgenLib)
+//  .dependsOn(jsdocgenLib)
   .enablePlugins(JsdocPlugin, ScalaJSPlugin)
   .settings(
     publishArtifact in (Compile, packageDoc) := false,

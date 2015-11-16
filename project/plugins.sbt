@@ -1,13 +1,16 @@
 logLevel := Level.Warn
 
+val jsdocgenVersion = "0.1.1-SNAPSHOT"
+
+
 
 lazy val root = (project in file("."))
-  .dependsOn(jsdocgenPlugin)
+//  .dependsOn(jsdocgenPlugin)
 
 lazy val jsdocgenPlugin = ProjectRef(uri("../../scalajs-jsdocgen"), "plugin")
 
 resolvers += Resolver.sonatypeRepo("snapshots")
 
-addSbtPlugin("com.github.maprohu" % "jsdocgen-plugin" % "0.1.1-SNAPSHOT")
+addSbtPlugin("com.github.maprohu" % "jsdocgen-plugin" % jsdocgenVersion)
 
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.5")

@@ -51,7 +51,7 @@ lazy val facade = project
       ((sourceDirectory in Compile).value / "javascript").toURI
     ),
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
-    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
+    jsdocRunTarget := target.value / "o3d-jsdoc.json",
     jsdocUtilScope := "pkg",
     sourceGenerators in Compile += jsdocGenerate.taskValue,
     libraryDependencies ++= Seq(

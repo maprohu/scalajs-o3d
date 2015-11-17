@@ -460,6 +460,7 @@ o3d.Texture.prototype.initWithTarget_ =
  * @param {number} opt_width The width of this texture in pixels.
  * @param {number} opt_height The height of this texture in pixels.
  * @constructor
+ * @extends {o3d.Texture}
  */
 o3d.Texture2D = function(opt_width, opt_height) {
   o3d.Texture.call(this);

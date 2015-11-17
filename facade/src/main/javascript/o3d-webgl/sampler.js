@@ -45,6 +45,7 @@
  *  \li 'mipFilter' (POINT)
  *  \li 'borderColor' ([0,0,0,0])
  *  \li 'maxAnisotropy' (1)
+ * @constructor
  */
 o3d.Sampler = function() {
   o3d.ParamObject.call(this);

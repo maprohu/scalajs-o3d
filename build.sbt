@@ -2,7 +2,7 @@ val githubRepo = "scalajs-o3d"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
-  version := "0.1.0-SNAPSHOT",
+  version := "0.1.1-SNAPSHOT",
   resolvers += Resolver.sonatypeRepo("snapshots"),
 
   scalaVersion := "2.11.7",
@@ -53,6 +53,7 @@ lazy val facade = project
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
     jsdocRunTarget := target.value / "o3d-jsdoc.json",
     jsdocUtilScope := "pkg",
+    jsdocGlobalScope := Seq("o3dfacade"),
     sourceGenerators in Compile += jsdocGenerate.taskValue,
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "0.8.0"

@@ -65,6 +65,9 @@ o3d.DrawList.SortMethod = goog.typedef;
  */
 o3d.DrawList.BY_PERFORMANCE = 0;
 o3d.DrawList.BY_Z_ORDER = 1;
+/**
+ * @type {number}
+ */
 o3d.DrawList.BY_PRIORITY = 2;
 
 

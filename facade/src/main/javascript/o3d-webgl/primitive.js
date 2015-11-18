@@ -34,8 +34,7 @@
  * A Primitive is a type of Element that is made from a list of points,
  * lines or triangles that use a single material.
  *
- * @param opt_streamBank o3d.StreamBank The StreamBank used by this
- *     Primitive.
+ * @param {!o3d.StreamBank} opt_streamBank The StreamBank used by this Primitive.
  * @constructor
  */
 o3d.Primitive = function(opt_streamBank) {

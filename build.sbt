@@ -2,7 +2,7 @@ val githubRepo = "scalajs-o3d"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
-  version := "0.1.1-SNAPSHOT",
+  version := "0.1.0-SNAPSHOT",
   resolvers += Resolver.sonatypeRepo("snapshots"),
 
   scalaVersion := "2.11.7",
@@ -42,7 +42,7 @@ lazy val jsdocgenLib = ProjectRef(uri("../scalajs-jsdocgen"), "lib")
 
 lazy val facade = project
   .settings(commonSettings)
-//  .dependsOn(jsdocgenLib)
+  .dependsOn(jsdocgenLib)
   .enablePlugins(JsdocPlugin, ScalaJSPlugin)
   .settings(
     publishArtifact in (Compile, packageDoc) := false,
@@ -52,8 +52,9 @@ lazy val facade = project
     ),
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
     jsdocRunTarget := target.value / "o3d-jsdoc.json",
-    jsdocUtilScope := "pkg",
+    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
     jsdocGlobalScope := Seq("o3dfacade"),
+    jsdocUtilScope := "pkg",
     sourceGenerators in Compile += jsdocGenerate.taskValue,
     libraryDependencies ++= Seq(
       "org.scala-js" %%% "scalajs-dom" % "0.8.0"
@@ -71,7 +72,8 @@ lazy val testapp = project
   .settings(
     persistLauncher in Compile := true,
     libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "0.8.0"
+      "org.scala-js" %%% "scalajs-dom" % "0.8.0",
+      "com.lihaoyi" %%% "scalatags" % "0.5.3"
     )
 
   )

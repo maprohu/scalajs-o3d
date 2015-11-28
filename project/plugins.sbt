@@ -5,7 +5,7 @@ val jsdocgenVersion = "0.1.2-SNAPSHOT"
 
 
 lazy val root = (project in file("."))
-//  .dependsOn(jsdocgenPlugin)
+  .dependsOn(jsdocgenPlugin)
 
 lazy val jsdocgenPlugin = ProjectRef(uri("../../scalajs-jsdocgen"), "plugin")
 

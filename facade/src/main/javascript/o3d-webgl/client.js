@@ -241,6 +241,14 @@ o3d.Client = function() {
    * @private
    */
   this.stateVariableStacks_ = {};
+
+  /**
+    * @name width
+    * @member {number}
+    */
+  /**
+    * @var {number} height
+    */
 };
 o3d.inherit('Client', 'NamedObject');
 

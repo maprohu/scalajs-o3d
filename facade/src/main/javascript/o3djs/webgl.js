@@ -48,10 +48,15 @@ o3djs.require('o3djs.util');
  */
 o3djs.webgl = o3djs.webgl || {};
 
+/**
+ * @callback o3djs.webgl.makeClientsCallback
+ * @param {Array.<HTMLCanvas>} clientElements
+ */
 
 /**
  * Finds all divs with an id that starts with "o3d" and inits a canvas
- * under them with o3d client object and the o3d namespace.
+ * under them with o3d client object and the o3d namespace. Boo
+ * @param {o3djs.webgl.makeClientsCallback} callback
  */
 o3djs.webgl.makeClients = function(callback,
                                    opt_features,

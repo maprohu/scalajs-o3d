@@ -242,13 +242,6 @@ o3d.Client = function() {
    */
   this.stateVariableStacks_ = {};
 
-  /**
-    * @name width
-    * @member {number}
-    */
-  /**
-    * @var {number} o3d.Client#height
-    */
 };
 o3d.inherit('Client', 'NamedObject');
 
@@ -603,7 +596,9 @@ o3d.Client.prototype.client_info = null;
  */
 o3d.Client.prototype.fullscreen = false;
 
-
+/**
+  * @var {number} o3d.Client#width
+  */
 /**
  * Returns the width of the current drawing area [plugin or full-screen] in
  * pixels.
@@ -620,7 +615,9 @@ o3d.Client.prototype.__defineSetter__('width',
     }
 );
 
-
+/**
+  * @var {number} o3d.Client#height
+  */
 /**
  * Returns the height of the current drawing area [plugin or full-screen] in
  * pixels.

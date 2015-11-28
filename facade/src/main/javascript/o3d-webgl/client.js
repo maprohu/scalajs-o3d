@@ -247,7 +247,7 @@ o3d.Client = function() {
     * @member {number}
     */
   /**
-    * @var {number} height
+    * @var {number} o3d.Client#height
     */
 };
 o3d.inherit('Client', 'NamedObject');

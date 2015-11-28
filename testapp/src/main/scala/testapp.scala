@@ -58,7 +58,26 @@ object TestApp extends JSApp {
 
   }
 
+  val x = new X {}
+
+  x.wrap.n = 5
+
 }
 
+
+@js.native
+trait X extends js.Any {
+  var n : js.Any = js.native
+}
+object X {
+  implicit class IW(x: X) {
+    def wrap : W = new W(x)
+  }
+
+  class W(x : X) {
+    def n : Int = x.n.asInstanceOf[Int]
+    def n_=(v: Int) = x.n = v
+  }
+}
 
 

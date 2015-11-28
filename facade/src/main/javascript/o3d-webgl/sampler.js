@@ -165,7 +165,7 @@ o3d.ParamObject.setUpO3DParam_(o3d.Sampler, 'texture', 'ParamTexture');
 /**
  * Converts the addressing mode of the sampler from an o3d constant to a webgl
  * constant.
- * @param {!o3d.Sampler.AddressMode} o3d_mode, the O3D addressing mode.
+ * @param {!o3d.Sampler.AddressMode} o3d_mode the O3D addressing mode.
  * @return {number} The webgl mode.
  */
 o3d.Sampler.prototype.convertAddressMode_ = function(o3d_mode) {
@@ -193,8 +193,8 @@ o3d.Sampler.prototype.convertAddressMode_ = function(o3d_mode) {
 /**
  * Converts the min filter mode of the sampler from an o3d constant to a webgl
  * constant.
- * @param {!o3d.Sampler.FilterType} o3d_filter, the O3D filter.
- * @param {!o3d.Sampler.FilterType} mip_filter, the O3D mip filter.
+ * @param {!o3d.Sampler.FilterType} o3d_filter the O3D filter.
+ * @param {!o3d.Sampler.FilterType} mip_filter the O3D mip filter.
  * @return {number} The webgl filter.
  */
 o3d.Sampler.prototype.convertMinFilter_ = function(o3d_filter, mip_filter) {
@@ -232,7 +232,7 @@ o3d.Sampler.prototype.convertMinFilter_ = function(o3d_filter, mip_filter) {
 /**
  * Converts the mag filter mode of the sampler from an o3d constant to a webgl
  * constant.
- * @param {!o3d.Sampler.FilterType} o3d_filter, the O3D filter.
+ * @param {!o3d.Sampler.FilterType} o3d_filter the O3D filter.
  * @return {number} The webgl filter.
  */
 o3d.Sampler.prototype.convertMagFilter_ = function(o3d_filter) {

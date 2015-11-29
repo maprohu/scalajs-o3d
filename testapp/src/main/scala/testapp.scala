@@ -55,10 +55,16 @@ object TestApp extends JSApp {
           client.renderGraphRoot
         )
 
-        view.drawContext.projection = math.matrix4.wrap.perspective(
+        view.drawContext.projection = math.matrix4.perspective(
           math.degToRad(30),
-          client.width / client.height
+          client.width / client.height,
+          1,
+          5000
         )
+//        view.drawContext.projection = math.matrix4.wrap.perspective(
+//          math.degToRad(30),
+//          client.width / client.height
+//        )
 
         ()
       }

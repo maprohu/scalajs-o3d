@@ -8,12 +8,20 @@ import scala.scalajs.js._
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.{JSName, JSExport}
 import org.scalajs.dom
-import o3dfacade.pkg._
+import o3dfacade.global._
 import o3dfacade.imports._
 /**
  * Created by pappmar on 10/11/2015.
  */
+
+//@js.native
+//object Global extends o3dfacade.pkg with GlobalScope {
+//
+//}
+
 object TestApp extends JSApp {
+
+//  import Global._
 
   @JSExport
   override def main(): Unit = {
@@ -47,7 +55,7 @@ object TestApp extends JSApp {
           client.renderGraphRoot
         )
 
-        view.drawContext.projection = math.matrix4.perspective(
+        view.drawContext.projection = math.matrix4.wrap.perspective(
           math.degToRad(30),
           client.width / client.height
         )
@@ -58,26 +66,26 @@ object TestApp extends JSApp {
 
   }
 
-  val x = new X {}
-
-  x.wrap.n = 5
+//  val x = new X {}
+//
+//  x.wrap.n = 5
 
 }
 
 
-@js.native
-trait X extends js.Any {
-  var n : js.Any = js.native
-}
-object X {
-  implicit class IW(x: X) {
-    def wrap : W = new W(x)
-  }
-
-  class W(x : X) {
-    def n : Int = x.n.asInstanceOf[Int]
-    def n_=(v: Int) = x.n = v
-  }
-}
+//@js.native
+//trait X extends js.Any {
+//  var n : js.Any = js.native
+//}
+//object X {
+//  implicit class IW(x: X) {
+//    def wrap : W = new W(x)
+//  }
+//
+//  class W(x : X) {
+//    def n : Int = x.n.asInstanceOf[Int]
+//    def n_=(v: Int) = x.n = v
+//  }
+//}
 
 

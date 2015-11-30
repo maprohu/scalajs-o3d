@@ -281,6 +281,7 @@ o3d.VertexBufferBase.prototype.getAt =
  * (e.g. vertex positions, normals, colors, etc).
  * A VertexBuffer can be rendered directly by the GPU.
  * @constructor
+ * @extends o3d.Buffer
  */
 o3d.VertexBuffer = function() {
   o3d.Buffer.call(this);

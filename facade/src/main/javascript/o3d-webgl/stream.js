@@ -63,14 +63,23 @@ o3d.Stream.Semantic = goog.typedef;
  * Semantics used when binding buffers to the streambank.  They determine how
  * the Stream links up to the shader inputs.
  */
+/** @type {number} */
 o3d.Stream.UNKNOWN_SEMANTIC = 0;
+/** @type {number} */
 o3d.Stream.POSITION = 1;
+/** @type {number} */
 o3d.Stream.NORMAL = 2;
+/** @type {number} */
 o3d.Stream.TANGENT = 3;
+/** @type {number} */
 o3d.Stream.BINORMAL = 4;
+/** @type {number} */
 o3d.Stream.COLOR = 5;
+/** @type {number} */
 o3d.Stream.TEXCOORD = 6;
+/** @type {number} */
 o3d.Stream.INFLUENCE_WEIGHTS = 7;
+/** @type {number} */
 o3d.Stream.INFLUENCE_INDICES = 8;
 
 

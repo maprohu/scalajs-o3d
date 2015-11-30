@@ -607,6 +607,12 @@ o3djs.io.loadBitmaps = function(pack, url, callback, opt_generateMips) {
 };
 
 /**
+* @callback o3djs.io.LoadTextureCallback
+* @param {o3d.Texture} texture
+* @param {Object} exception
+*/
+
+/**
  * Loads a texture.
  *
  * Textures are loaded asynchronously.
@@ -629,7 +635,7 @@ o3djs.io.loadBitmaps = function(pack, url, callback, opt_generateMips) {
  *
  * @param {!o3d.Pack} pack Pack to load texture into.
  * @param {string} url URL of texture to load.
- * @param {!function(o3d.Texture, *): void} callback Callback when
+ * @param {!o3djs.io.LoadTextureCallback} callback Callback when
  *     texture is loaded. It will be passed the texture and an exception on
  *     error or null on success.
  * @param {boolean} opt_generateMips Generate Mips. Default = true.

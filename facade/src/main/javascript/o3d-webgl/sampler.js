@@ -126,9 +126,13 @@ o3d.Sampler.AddressMode = goog.typedef;
  *  CLAMP
  *  BORDER
  */
+/** @type {number} */ 
 o3d.Sampler.WRAP = 0;
+/** @type {number} */
 o3d.Sampler.MIRROR = 1;
+/** @type {number} */
 o3d.Sampler.CLAMP = 2;
+/** @type {number} */
 o3d.Sampler.BORDER = 3;
 
 

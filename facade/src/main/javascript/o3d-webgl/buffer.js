@@ -313,6 +313,7 @@ o3d.inherit('SourceBuffer', 'Buffer');
  * IndexBuffer is a buffer object used for storing geometry index data (e.g.
  * triangle indices).
  * @constructor
+ * @extends o3d.Buffer
  */
 o3d.IndexBuffer = function() {
   o3d.Buffer.call(this);

@@ -248,7 +248,6 @@ object TestApp extends JSApp {
     val cubeTransform = pack.createObject("Transform").asInstanceOf[Transform]
     cubeTransform.addShape(cubeShape)
 
-
     val timeMult = 1.0
     var clock = 0.0
     client.setRenderCallback({ (renderEvent:RenderEvent) =>
@@ -269,11 +268,8 @@ object TestApp extends JSApp {
     dom.window.onunload = { (e:Event) =>
       client.cleanup()
     }
-
-
-
-
   }
+
   def redcube(o3dElement: HTMLCanvasElement): Unit = {
 
     val client = o3dElement.client

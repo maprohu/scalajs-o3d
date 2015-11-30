@@ -101,11 +101,17 @@ o3d.Primitive.Type = goog.typedef;
 /**
  * Type of geometric primitives used by the Primitive.
  */
+/** @type {number} */
 o3d.Primitive.POINTLIST = 1;
+/** @type {number} */
 o3d.Primitive.LINELIST = 2;
+/** @type {number} */
 o3d.Primitive.LINESTRIP = 3;
+/** @type {number} */
 o3d.Primitive.TRIANGLELIST = 4;
+/** @type {number} */
 o3d.Primitive.TRIANGLESTRIP = 5;
+/** @type {number} */
 o3d.Primitive.TRIANGLEFAN = 6;
 
 o3d.ParamObject.setUpO3DParam_(o3d.Primitive, 'streamBank', 'ParamStreamBank');

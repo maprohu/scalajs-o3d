@@ -83,6 +83,9 @@ o3d.Param.prototype.owner_ = null;
  */
 o3d.Param.prototype.value_ = null;
 
+/**
+ * @var {Object} value
+ */
 o3d.Param.prototype.__defineSetter__('value',
     function(v) {
       if (this.inputConnection) {

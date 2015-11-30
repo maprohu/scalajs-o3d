@@ -36,6 +36,7 @@
  *
  * @param {!o3d.StreamBank} opt_streamBank The StreamBank used by this Primitive.
  * @constructor
+ * @augments o3d.Element
  */
 o3d.Primitive = function(opt_streamBank) {
   o3d.Element.call(this);

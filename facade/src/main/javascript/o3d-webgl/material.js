@@ -41,6 +41,7 @@
  * @param {!o3d.Effect} opt_effect The Effect used by this material.
  * @param {!o3d.DrawList} opt_draw_list The the DrawList used by this material.
  * @constructor
+ * @extends o3d.ParamObject
  */
 o3d.Material = function(opt_state, opt_effect, opt_draw_list) {
   o3d.ParamObject.call(this);

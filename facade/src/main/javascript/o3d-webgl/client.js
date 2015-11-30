@@ -734,6 +734,10 @@ o3d.Client.prototype.initErrorTextures_ = function() {
   this.fallback_error_texture_ = defaultTexture;
 };
 
+/**
+* @callback o3d.RenderCallback
+* @param {o3d.RenderEvent} renderEvent
+*/
 
 /**
  * Sets the per frame render callback.

@@ -149,9 +149,13 @@ o3d.Sampler.FilterType = goog.typedef;
  *  LINEAR
  *  ANISOTROPIC
  */
+ /** @type {number} */ 
 o3d.Sampler.NONE = 0;
+/** @type {number} */ 
 o3d.Sampler.POINT = 1;
+/** @type {number} */ 
 o3d.Sampler.LINEAR = 2;
+/** @type {number} */ 
 o3d.Sampler.ANISOTROPIC = 3;
 
 

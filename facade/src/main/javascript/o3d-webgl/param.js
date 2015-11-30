@@ -84,7 +84,7 @@ o3d.Param.prototype.owner_ = null;
 o3d.Param.prototype.value_ = null;
 
 /**
- * @var {Object} value
+ * @var {Object} o3d.Param#value
  */
 o3d.Param.prototype.__defineSetter__('value',
     function(v) {

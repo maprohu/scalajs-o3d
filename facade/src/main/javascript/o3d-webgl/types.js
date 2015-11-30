@@ -100,6 +100,10 @@ o3d.TickCallback = goog.typedef;
 
 
 /**
+* @callback o3d.RenderCallback
+* @param {o3d.RenderEvent} renderEvent
+*/
+/***
  * A function.
  * @type {Object}
  */

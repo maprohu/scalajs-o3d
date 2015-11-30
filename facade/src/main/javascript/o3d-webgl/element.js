@@ -128,6 +128,9 @@ o3d.ParamObject.setUpO3DParam_(o3d.Element, 'zSortPoint', 'ParamFloat3');
 o3d.ParamObject.setUpO3DParam_(o3d.Element, 'priority', 'ParamFloat');
 o3d.ParamObject.setUpO3DParam_(o3d.Element, 'cull', 'ParamBoolean');
 
+/**
+ * @var {o3d.Shape} o3d.Element#owner
+ */
 o3d.Element.prototype.__defineSetter__('owner',
     function(o) {
       this.owner_ = o;

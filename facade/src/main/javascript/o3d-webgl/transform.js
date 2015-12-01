@@ -129,6 +129,7 @@ o3d.Transform =
    * Note that modifications to this array [e.g. additions to it] will
    * not affect the underlying Transform, while modifications to the
    * members of the array will affect them.
+   * @type {Array.<o3d.Shape>}
    */
   this.shapes = [];
 };

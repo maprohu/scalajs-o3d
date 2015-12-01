@@ -2,7 +2,7 @@ val githubRepo = "scalajs-o3d"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
-  version := "0.1.0-SNAPSHOT",
+  version := "0.1.1-SNAPSHOT",
   resolvers += Resolver.sonatypeRepo("snapshots"),
 
   scalaVersion := "2.11.7",

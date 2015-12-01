@@ -38,11 +38,11 @@ val noPublish = Seq(
   publishTo := Some(Resolver.file("Unused transient repository", file("target/unusedrepo")))
 )
 
-lazy val jsdocgenLib = ProjectRef(uri("../scalajs-jsdocgen"), "lib")
+//lazy val jsdocgenLib = ProjectRef(uri("../scalajs-jsdocgen"), "lib")
 
 lazy val facade = project
   .settings(commonSettings)
-  .dependsOn(jsdocgenLib)
+//  .dependsOn(jsdocgenLib)
   .enablePlugins(JsdocPlugin, ScalaJSPlugin)
   .settings(
     publishArtifact in (Compile, packageDoc) := false,
@@ -52,7 +52,7 @@ lazy val facade = project
     ),
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
     jsdocRunTarget := target.value / "o3d-jsdoc.json",
-    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
+//    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
     jsdocGlobalScope := Seq("o3dfacade"),
     jsdocUtilScope := "pkg",
     sourceGenerators in Compile += jsdocGenerate.taskValue,

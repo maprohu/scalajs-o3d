@@ -138,14 +138,23 @@ o3d.Texture.Format = goog.typedef;
  *
  * @param {number} levels The number of mip levels in this texture.
  */
+/** @type {number} */
 o3d.Texture.UNKNOWN_FORMAT = 0;
+/** @type {number} */
 o3d.Texture.XRGB8 = 1;
+/** @type {number} */
 o3d.Texture.ARGB8 = 2;
+/** @type {number} */
 o3d.Texture.ABGR16F = 3;
+/** @type {number} */
 o3d.Texture.R32F = 4;
+/** @type {number} */
 o3d.Texture.ABGR32F = 5;
+/** @type {number} */
 o3d.Texture.DXT1 = 6;
+/** @type {number} */
 o3d.Texture.DXT3 = 7;
+/** @type {number} */
 o3d.Texture.DXT5 = 8;
 
 

@@ -1,6 +1,7 @@
 
 import o3dfacade.o3d._
-import org.scalajs.dom.raw.HTMLCanvasElement
+import o3dfacade.o3djs.rendergraph.ViewInfo
+import org.scalajs.dom.raw.{CanvasRenderingContext2D, HTMLCanvasElement}
 import org.scalajs.dom.{Event, css}
 
 import scala.scalajs.js
@@ -21,20 +22,8 @@ object TestApp extends JSApp {
 
   @JSExport
   override def main(): Unit = {
-    dom.document.body.appendChild(
-      div(
-        id := "o3d-red",
-        width := 800.px,
-        height := 400.px
-      ).render
-    )
-    dom.document.body.appendChild(
-      div(
-        id := "o3d-texture",
-        width := 800.px,
-        height := 400.px
-      ).render
-    )
+
+
 
 
     o3djs.base.o3d = o3d
@@ -43,10 +32,34 @@ object TestApp extends JSApp {
     o3djs.require("o3djs.rendergraph")
 
     dom.window.onload = { (e:Event) =>
+
+      dom.document.body.appendChild(
+        div(
+          id := "o3d-red",
+          width := 800.px,
+          height := 400.px
+        ).render
+      )
+      dom.document.body.appendChild(
+        div(
+          id := "o3d-texture",
+          width := 800.px,
+          height := 400.px
+        ).render
+      )
+      dom.document.body.appendChild(
+        div(
+          id := "o3d-canvasTexture",
+          width := 800.px,
+          height := 400.px
+        ).render
+      )
+
       o3djs.webgl.makeClients { (clientElements:js.Array[HTMLCanvasElement]) =>
 
-        texture(clientElements(0))
-        redcube(clientElements(1))
+        loadedTexture(clientElements(0))
+        canvasTexture(clientElements(1))
+        redcube(clientElements(2))
 
 
         ()
@@ -55,7 +68,62 @@ object TestApp extends JSApp {
 
   }
 
-  def texture(o3dElement: HTMLCanvasElement): Unit = {
+  def canvasTexture(o3dElement: HTMLCanvasElement): Unit = {
+    val textureSize = 128
+    val textureCanvas = canvas(
+      id := "texture",
+      "width".attr := textureSize,
+      "height".attr := textureSize,
+      border := "1px solid"
+    ).render
+
+    dom.document.body.appendChild(
+      textureCanvas
+    )
+
+    val ctx = textureCanvas.getContext("2d").asInstanceOf[CanvasRenderingContext2D]
+
+    ctx.fillStyle = "white"
+    ctx.fillRect(0, 0, textureSize, textureSize)
+    ctx.fillStyle = "red"
+
+    ctx.font = s"bold ${textureSize*3/4}px Courier"
+    ctx.textBaseline = "middle"
+    ctx.textAlign = "center"
+    ctx.fillText("?", textureSize/4, textureSize/4)
+    ctx.fillText("?", textureSize*3/4, textureSize*3/4)
+
+    texturedCube(
+      o3dElement,
+      { (pack, client, viewInfo, cb) =>
+        val texture = pack.createTexture2D(textureSize, textureSize, o3d.Texture.XRGB8, 1, false)
+        texture.setFromCanvas_(textureCanvas, true, true)
+        cb(texture)
+      }
+    )
+  }
+
+  def loadedTexture(o3dElement: HTMLCanvasElement): Unit = {
+    texturedCube(
+      o3dElement,
+      { (pack, client, viewInfo, cb) =>
+        o3djs.io.loadTexture(
+          pack,
+          "texture.jpg",
+          (texture:Texture, ex:Any) => {
+            cb(texture)
+          }
+        )
+      }
+    )
+
+  }
+
+  def texturedCube(
+    o3dElement: HTMLCanvasElement,
+    loader: (Pack, Client, ViewInfo, Texture => Unit) => Unit
+
+  ): Unit = {
 
     val client = o3dElement.client
     val o3d = o3dElement.o3d
@@ -103,7 +171,7 @@ object TestApp extends JSApp {
         |    // Multiply the vertex positions by the worldViewProjection matrix to
         |    // transform them to screen space.
         |    gl_Position = worldViewProjection * position;
-        |    uvs = texCoord0;
+        |    uvs = texCoord0 * 5.0;
         |  }
       """.stripMargin
 
@@ -256,10 +324,12 @@ object TestApp extends JSApp {
       cubeTransform.rotateY(2 * clock)
     })
 
-    o3djs.io.loadTexture(
+
+    loader(
       pack,
-      "texture.jpg",
-      (texture:Texture, ex:Any) => {
+      client,
+      viewInfo,
+      { texture =>
         sampler.texture = texture
         cubeTransform.parent = client.root
       }

@@ -2,7 +2,7 @@ val githubRepo = "scalajs-o3d"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
-  version := "0.1.1-SNAPSHOT",
+  version := "0.1.2-SNAPSHOT",
   resolvers += Resolver.sonatypeRepo("snapshots"),
 
   scalaVersion := "2.11.7",
@@ -50,6 +50,7 @@ lazy val facade = project
     jsdocRunSource := Some(
       ((sourceDirectory in Compile).value / "javascript").toURI
     ),
+    jsdocTarget := (sourceManaged in Compile).value,
     jsdocRunInputs := Seq("o3d-webgl", "o3djs"),
     jsdocRunTarget := target.value / "o3d-jsdoc.json",
 //    jsdocDocletsFile := target.value / "o3d-jsdoc.json",

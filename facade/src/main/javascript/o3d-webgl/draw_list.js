@@ -63,11 +63,11 @@ o3d.DrawList.SortMethod = goog.typedef;
  *
  * Method to sort DrawList by.
  */
+/** @type {number} */
 o3d.DrawList.BY_PERFORMANCE = 0;
+/** @type {number} */
 o3d.DrawList.BY_Z_ORDER = 1;
-/**
- * @type {number}
- */
+/** @type {number} */
 o3d.DrawList.BY_PRIORITY = 2;
 
 

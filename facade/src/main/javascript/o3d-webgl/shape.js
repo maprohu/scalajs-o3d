@@ -126,6 +126,7 @@ o3d.Shape.prototype.removeElement = function(element) {
  * @param {Array.<Object>} drawListInfos A list of objects containing
  *     drawlists and matrix info.
  * @param {o3d.math.Matrix4} world The world matrix.
+ * @param {o3d.Transform} transform
  */
 o3d.Shape.prototype.writeToDrawLists =
     function(drawListInfos, world, transform) {

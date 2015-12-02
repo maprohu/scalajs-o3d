@@ -62,6 +62,7 @@ o3d.Transform =
 
   /**
    * World (model) matrix as it was last computed.
+   * @type {Array.<Array.<number>>}
    */
   this.worldMatrix = opt_worldMatrix ||
       [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]];

@@ -47,7 +47,7 @@ o3d.DrawContext = function(opt_view, opt_projection) {
   /**
    * The view matrix represents the viewing transformation, used to
    * take vertices from world space to view space.
-   * @type {o3d.Matrix4}
+   * @type {o3d.math.Matrix4}
    */
   this.view = opt_view ||
       [[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]];

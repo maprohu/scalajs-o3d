@@ -55,7 +55,7 @@ lazy val facade = project
     jsdocRunTarget := target.value / "o3d-jsdoc.json",
 
     // comment to do jsdoc run
-    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
+//    jsdocDocletsFile := target.value / "o3d-jsdoc.json",
 
     jsdocGlobalScope := Seq("o3dfacade"),
     jsdocUtilScope := "pkg",

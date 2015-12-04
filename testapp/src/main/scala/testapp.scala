@@ -15,8 +15,6 @@ import o3dfacade.imports._
 /**
  * Created by pappmar on 10/11/2015.
  */
-
-
 object TestApp extends JSApp {
 
 
@@ -93,7 +91,7 @@ object TestApp extends JSApp {
 
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, textureSize, textureSize)
-    ctx.fillStyle = "red"
+    ctx.fillStyle = "black"
 
     ctx.font = s"bold ${textureSize*3/4}px Courier"
     ctx.textBaseline = "middle"
@@ -130,7 +128,6 @@ object TestApp extends JSApp {
   def texturedCube(
     o3dElement: HTMLCanvasElement,
     loader: (Pack, Client, ViewInfo, Texture => Unit) => Unit
-
   ): Unit = {
 
     val client = o3dElement.client

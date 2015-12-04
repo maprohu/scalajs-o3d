@@ -203,7 +203,7 @@ o3djs.math.Matrix4 = goog.typedef;
 
 /**
  * A arbitrary size Matrix of floats
- * @type {(!Array.<!Array.<number>>|!o3d..math.Matrix4)}
+ * @type {(!Array.<!Array.<number>>|!o3d.math.Matrix4)}
  */
 o3djs.math.Matrix = goog.typedef;
 

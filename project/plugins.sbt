@@ -1,6 +1,6 @@
 logLevel := Level.Warn
 
-val jsdocgenVersion = "0.1.2-SNAPSHOT"
+val jsdocgenVersion = "0.1.2"
 
 
 
@@ -11,6 +11,7 @@ val jsdocgenVersion = "0.1.2-SNAPSHOT"
 
 resolvers ++= Seq(
   Resolver.defaultLocal,
+  sbtglobal.SbtGlobals.devops,
   Resolver.sonatypeRepo("snapshots")
 )
 

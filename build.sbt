@@ -1,22 +1,25 @@
 val githubRepo = "scalajs-o3d"
 
+val repo = "http://localhost:38084"
+val snapshots = "snapshots" at s"$repo/snapshots"
+val releases = "releases" at s"$repo/releases"
+
 val commonSettings = Seq(
   organization := "com.github.maprohu",
   version := "0.1.2",
-  resolvers += Resolver.sonatypeRepo("snapshots"),
-  resolvers += sbtglobal.SbtGlobals.devops,
+  resolvers ++= Seq(
+    snapshots,
+    releases
+  ),
 
   scalaVersion := "2.11.7",
   publishMavenStyle := true,
   publishTo := {
-    val nexus = "https://oss.sonatype.org/"
     if (isSnapshot.value)
-      Some("snapshots" at nexus + "content/repositories/snapshots")
+      Some(snapshots)
     else
-      Some(sbtglobal.SbtGlobals.devops)
-//      Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+      Some(releases)
   },
-  credentials += sbtglobal.SbtGlobals.devopsCredentials,
 
   pomIncludeRepository := { _ => false },
   licenses := Seq("BSD-style" -> url("http://www.opensource.org/licenses/bsd-license.php")),

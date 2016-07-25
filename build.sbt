@@ -6,7 +6,7 @@ val releases = "releases" at s"$repo/releases"
 
 val commonSettings = Seq(
   organization := "com.github.maprohu",
-  version := "0.1.2",
+  version := "0.1.3-SNAPSHOT",
   resolvers ++= Seq(
     snapshots,
     releases

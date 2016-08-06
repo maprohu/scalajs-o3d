@@ -1,6 +1,6 @@
 logLevel := Level.Warn
 
-val jsdocgenVersion = "0.1.2"
+val jsdocgenVersion = "0.1.3-SNAPSHOT"
 
 
 
